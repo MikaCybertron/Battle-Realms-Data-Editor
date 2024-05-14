@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGridExtension.cs" />
     <Compile Include="Data\ColumnLink.cs" />
     <Compile Include="Data\DATCollection.cs" />
     <Compile Include="Data\DATEditor.cs" />
