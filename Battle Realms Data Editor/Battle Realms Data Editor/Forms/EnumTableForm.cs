@@ -20,7 +20,13 @@ namespace BattleRealmsDataEditor.Forms
             this.mainForm = mainForm;
             this.Editor = editor;
 
+            InitializeDataGrid();
             ReadListData();
+        }
+
+        private void InitializeDataGrid()
+        {
+            dataGridView1.EnableDoubleBuffered();
         }
 
         public MainForm mainForm { get; set; }
