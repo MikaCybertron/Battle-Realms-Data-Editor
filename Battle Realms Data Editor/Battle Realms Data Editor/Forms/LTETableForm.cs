@@ -19,10 +19,16 @@ namespace BattleRealmsDataEditor.Forms
             InitializeComponent();
 
             this.mainForm = mainForm;
-
+            
+            InitializeDataGrid();
             ReadListData();
         }
 
+        private void InitializeDataGrid()
+        {
+            dataGridView1.EnableDoubleBuffered();
+        }
+        
         public MainForm mainForm { get; set; }
 
         private void LTETableForm_Load(object sender, EventArgs e)
