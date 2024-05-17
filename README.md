@@ -1,6 +1,6 @@
 # Battle Realms Data Editor (Nightly Repository)
 
-### This repository is Alpha version if you want full to please [Go to Stable Version](https://github.com/MikaCybertron/Battle-Realms-Data-Editor)
+### 🔴 This repository is Alpha version if you want full to please [Go to Stable Version](https://github.com/MikaCybertron/Battle-Realms-Data-Editor)
 
 <br>
 
