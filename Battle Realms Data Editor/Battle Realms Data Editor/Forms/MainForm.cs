@@ -1,4 +1,4 @@
-using BattleRealmsDataEditor.Data;
+﻿using BattleRealmsDataEditor.Data;
 using System;
 using System.Windows.Forms;
 
@@ -10,7 +10,7 @@ namespace BattleRealmsDataEditor.Forms
         {
             InitializeComponent();
 
-            DarkTitleBar.EnabledDarkTheme(Handle, true);
+            this.EnabledTitleBarDarkMode();
 
             FormClosing += (s, e) =>
             {

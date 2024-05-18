@@ -1,4 +1,4 @@
-namespace BattleRealmsDataEditor.Forms
+﻿namespace BattleRealmsDataEditor.Forms
 {
     partial class MainForm
     {
@@ -289,3 +289,4 @@ namespace BattleRealmsDataEditor.Forms
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
+
