@@ -11,3 +11,7 @@ This tool has been reactive by Mika Cybertron, the original one can be found in 
 ![](https://github.com/KravitzMC/Battle-Realms-Data-Editor/blob/main/Image/4_dark.png)
 
 
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
