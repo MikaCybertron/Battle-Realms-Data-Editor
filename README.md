@@ -8,6 +8,6 @@ This tool has been reactive by Mika Cybertron, the original one can be found in 
 # Preview
 ![](https://github.com/KravitzMC/Battle-Realms-Data-Editor/blob/main/Image/3_dark.png)
 
-![](https://github.com/MikaCybertron/Battle-Realms-Data-Editor/blob/main/Image/4dark.png)
+![](https://github.com/KravitzMC/Battle-Realms-Data-Editor/blob/main/Image/4_dark.png)
 
 
