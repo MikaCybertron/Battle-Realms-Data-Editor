@@ -17,6 +17,8 @@ namespace BattleRealmsDataEditor.Forms
         public MainForm()
         {
             InitializeComponent();
+            
+            DarkTitleBar.EnabledDarkTheme(Handle, true);
         }
 
         public DATEditor Editor { get; set; }
