@@ -13,5 +13,8 @@ This tool has been reactive by Mika Cybertron, the original one can be found in 
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
 Please make sure to update tests as appropriate.
+
+## License
+[![License: CC BY-NC-ND 4.0](https://github.com/KravitzMC/Battle-Realms-Data-Editor/blob/main/Image/byncsa_licensecommon.png)](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+
