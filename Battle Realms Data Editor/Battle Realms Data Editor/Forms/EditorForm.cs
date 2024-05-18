@@ -21,6 +21,8 @@ namespace BattleRealmsDataEditor.Forms
 
             Reset();
 
+            DarkTitleBar.EnabledDarkTheme(Handle, true);
+
             this.DataTableForm = dataTableForm;
 
             this.Text = string.Format("{0} - {1}", tableName, columnName);
