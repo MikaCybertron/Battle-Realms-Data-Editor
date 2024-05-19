@@ -1,15 +1,8 @@
 ﻿using BattleRealmsDataEditor.Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace BattleRealmsDataEditor.Forms
 {
@@ -21,13 +14,15 @@ namespace BattleRealmsDataEditor.Forms
 
             Reset();
 
+            this.EnabledTitleBarDarkMode();
+
             this.DataTableForm = dataTableForm;
 
             this.Text = string.Format("{0} - {1}", tableName, columnName);
 
             this.TableName = tableName;
 
-            this.ColumnName= columnName;
+            this.ColumnName = columnName;
 
             this.label1.Text = labelName;
 
@@ -37,13 +32,12 @@ namespace BattleRealmsDataEditor.Forms
 
             this.IsEditAble = true;
 
-
             if (columnLink.DataType == TableLink.TableDataType.LTE)
             {
                 this.comboBoxList.Visible = true;
 
                 string LTEName = null;
-                if(this.DataTableForm.Editor.DAT.IsWOTWVersion)
+                if (this.DataTableForm.Editor.DAT.IsWOTWVersion)
                 {
                     LTEName = columnLink.LTEWOTW;
                 }
@@ -100,7 +94,7 @@ namespace BattleRealmsDataEditor.Forms
                 }
             }
 
-            if(columnLink.DataType == TableLink.TableDataType.LTE || columnLink.DataType == TableLink.TableDataType.Enum)
+            if (columnLink.DataType == TableLink.TableDataType.LTE || columnLink.DataType == TableLink.TableDataType.Enum)
             {
                 int minValue = 0, maxValue = 0;
                 for (int i = 0; i < this.ListStringItem.Count; i++)
@@ -158,7 +152,7 @@ namespace BattleRealmsDataEditor.Forms
                 this.numNumber.DecimalPlaces = 0;
                 this.numNumber.Minimum = int.MinValue;
                 this.numNumber.Maximum = int.MaxValue;
-                
+
                 if (value is int intValue)
                 {
                     this.numNumber.Value = (decimal)intValue;
@@ -180,7 +174,6 @@ namespace BattleRealmsDataEditor.Forms
                 {
                     this.numNumber.Value = (decimal)floatValue;
                 }
-                
 
                 this.numNumber.Select(0, this.numNumber.Text.Length);
 
@@ -216,12 +209,10 @@ namespace BattleRealmsDataEditor.Forms
 
         private void EditValue_Load(object sender, EventArgs e)
         {
-
         }
 
         private void EditValue_FormClosing(object sender, FormClosingEventArgs e)
         {
-
         }
 
         private void Reset()
@@ -247,7 +238,7 @@ namespace BattleRealmsDataEditor.Forms
 
         private void checkBoxBoolean_CheckedChanged(object sender, EventArgs e)
         {
-            if(this.checkBoxBoolean.Checked)
+            if (this.checkBoxBoolean.Checked)
             {
                 this.checkBoxBoolean.Text = "True";
             }
@@ -261,7 +252,6 @@ namespace BattleRealmsDataEditor.Forms
         {
             SaveAndSendValue();
         }
-
 
         private void SaveAndSendValue()
         {

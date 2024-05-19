@@ -1,13 +1,5 @@
 ﻿using BattleRealmsDataEditor.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Common;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BattleRealmsDataEditor.Forms
@@ -17,6 +9,16 @@ namespace BattleRealmsDataEditor.Forms
         public MainForm()
         {
             InitializeComponent();
+
+            this.EnabledTitleBarDarkMode();
+
+            FormClosing += (s, e) =>
+            {
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    GC.Collect();
+                }
+            };
         }
 
         public DATEditor Editor { get; set; }
@@ -37,7 +39,6 @@ namespace BattleRealmsDataEditor.Forms
 
             ShowMainControl(this.MainPanel3, this.MainLTETable);
         }
-
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -69,10 +70,8 @@ namespace BattleRealmsDataEditor.Forms
                 ShowMainControl(this.MainPanel1, this.MainDataTable);
 
                 ShowMainControl(this.MainPanel2, this.MainEnumTable);
-
             }
         }
-
 
         private void ShowMainControl(Panel mainPanel, Control control)
         {
@@ -93,12 +92,9 @@ namespace BattleRealmsDataEditor.Forms
             }
         }
 
-
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Editor.SaveFile();
-
-            
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -116,12 +112,19 @@ namespace BattleRealmsDataEditor.Forms
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+        }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var AboutBox = new AboutForm();
+
+            if (AboutBox.ShowDialog(this) == DialogResult.OK)
+            {
+            }
         }
     }
 }

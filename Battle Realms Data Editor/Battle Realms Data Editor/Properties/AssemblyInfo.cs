@@ -9,8 +9,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Battle Realms Data Editor by Mika Cybertron")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("New Battle Realms Data Editor")]
-[assembly: AssemblyCopyright("Copyright © Mika Cybertron 2023")]
+[assembly: AssemblyProduct("Battle Realms Data Editor")]
+[assembly: AssemblyCopyright("Copyright © 2024 Mika Cybertron")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
