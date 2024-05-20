@@ -10,9 +10,10 @@ namespace BattleRealmsDataEditor.Forms
         public MainForm()
         {
             InitializeComponent();
-            InitializeDragDropFile();            
+            InitializeDragDropFile();
+
             this.EnabledTitleBarDarkMode();
-            
+
             FormClosing += (s, e) =>
             {
                 if (e.CloseReason == CloseReason.UserClosing)
@@ -145,23 +146,31 @@ namespace BattleRealmsDataEditor.Forms
 
         private void OpenSingleDATFile(string filePath)
         {
-            DATFile datFile = new DATFile(filePath);
+            try
+            {
+                DATFile datFile = new DATFile(filePath);
 
-            Editor = new DATEditor();
+                Editor = new DATEditor();
 
-            Editor.DoOpen(datFile);
+                Editor.DoOpen(datFile);
 
-            this.MainDataTable = null;
+                this.MainDataTable = null;
 
-            this.MainDataTable = new DataTableForm(this, this.Editor);
+                this.MainDataTable = new DataTableForm(this, this.Editor);
 
-            this.MainEnumTable = null;
+                this.MainEnumTable = null;
 
-            this.MainEnumTable = new EnumTableForm(this, this.Editor);
+                this.MainEnumTable = new EnumTableForm(this, this.Editor);
 
-            ShowMainControl(this.MainPanel1, this.MainDataTable);
+                ShowMainControl(this.MainPanel1, this.MainDataTable);
 
-            ShowMainControl(this.MainPanel2, this.MainEnumTable);
+                ShowMainControl(this.MainPanel2, this.MainEnumTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while reading the stream: {ex.Message}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
