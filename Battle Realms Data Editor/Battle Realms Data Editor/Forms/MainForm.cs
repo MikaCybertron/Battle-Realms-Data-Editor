@@ -10,10 +10,9 @@ namespace BattleRealmsDataEditor.Forms
         public MainForm()
         {
             InitializeComponent();
-            InitializeDragDropFile();
-
+            InitializeDragDropFile();            
             this.EnabledTitleBarDarkMode();
-
+            
             FormClosing += (s, e) =>
             {
                 if (e.CloseReason == CloseReason.UserClosing)
