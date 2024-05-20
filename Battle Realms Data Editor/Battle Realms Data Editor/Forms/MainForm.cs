@@ -1,5 +1,6 @@
 ﻿using BattleRealmsDataEditor.Data;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace BattleRealmsDataEditor.Forms
@@ -9,6 +10,7 @@ namespace BattleRealmsDataEditor.Forms
         public MainForm()
         {
             InitializeComponent();
+            InitializeDragDropFile();
 
             this.EnabledTitleBarDarkMode();
 
@@ -51,25 +53,7 @@ namespace BattleRealmsDataEditor.Forms
             {
                 string filePath = openFileDialog.FileName;
 
-                DATFile datFile = new DATFile(filePath);
-
-                Console.WriteLine(datFile.ToString());
-
-                Editor = new DATEditor();
-
-                Editor.DoOpen(datFile);
-
-                this.MainDataTable = null;
-
-                this.MainDataTable = new DataTableForm(this, this.Editor);
-
-                this.MainEnumTable = null;
-
-                this.MainEnumTable = new EnumTableForm(this, this.Editor);
-
-                ShowMainControl(this.MainPanel1, this.MainDataTable);
-
-                ShowMainControl(this.MainPanel2, this.MainEnumTable);
+                OpenSingleDATFile(filePath);
             }
         }
 
@@ -125,6 +109,60 @@ namespace BattleRealmsDataEditor.Forms
             if (AboutBox.ShowDialog(this) == DialogResult.OK)
             {
             }
+        }
+
+        private void InitializeDragDropFile()
+        {
+            this.AllowDrop = true;
+
+            this.DragDrop += (s, e) =>
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                if (files.Length > 1)
+                {
+                    MessageBox.Show("Not allowed multiple drag drop files.", "Error Opening file",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (files.Length == 1)
+                {
+                    var ext = Path.GetExtension(files[0]).ToLower();
+
+                    if (ext == ".dat")
+                    {
+                        OpenSingleDATFile(files[0]);
+                    }
+                }
+            };
+
+            this.DragEnter += (s, e) =>
+            {
+                if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                {
+                    e.Effect = DragDropEffects.Copy | DragDropEffects.Move;
+                }
+            };
+        }
+
+        private void OpenSingleDATFile(string filePath)
+        {
+            DATFile datFile = new DATFile(filePath);
+
+            Editor = new DATEditor();
+
+            Editor.DoOpen(datFile);
+
+            this.MainDataTable = null;
+
+            this.MainDataTable = new DataTableForm(this, this.Editor);
+
+            this.MainEnumTable = null;
+
+            this.MainEnumTable = new EnumTableForm(this, this.Editor);
+
+            ShowMainControl(this.MainPanel1, this.MainDataTable);
+
+            ShowMainControl(this.MainPanel2, this.MainEnumTable);
         }
     }
 }
