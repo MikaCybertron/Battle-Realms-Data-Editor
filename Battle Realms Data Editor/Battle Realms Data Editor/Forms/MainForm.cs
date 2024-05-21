@@ -1,5 +1,6 @@
 ﻿using BattleRealmsDataEditor.Data;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -10,17 +11,9 @@ namespace BattleRealmsDataEditor.Forms
         public MainForm()
         {
             InitializeComponent();
-            InitializeDragDropFile();
+            CreateEventListener();
 
             this.EnabledTitleBarDarkMode();
-
-            FormClosing += (s, e) =>
-            {
-                if (e.CloseReason == CloseReason.UserClosing)
-                {
-                    GC.Collect();
-                }
-            };
         }
 
         public DATEditor Editor { get; set; }
@@ -121,8 +114,10 @@ namespace BattleRealmsDataEditor.Forms
 
                 if (files.Length > 1)
                 {
-                    MessageBox.Show("Not allowed multiple drag drop files.", "Error Opening file",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Not allowed multiple drag drop files.",
+                        "Error Opening file",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
                 else if (files.Length == 1)
                 {
@@ -171,6 +166,51 @@ namespace BattleRealmsDataEditor.Forms
                 MessageBox.Show($"An error occurred while reading the stream: {ex.Message}",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void CreateEventListener()
+        {
+            InitializeDragDropFile();
+
+            FormClosing += (s, e) =>
+            {
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    GC.Collect();
+                }
+            };
+
+            tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabControl1.DrawItem += (s, e) =>
+            {
+                Rectangle rec = tabControl1.ClientRectangle;
+                StringFormat StrFormat = new StringFormat();
+                StrFormat.LineAlignment = StringAlignment.Center;
+                StrFormat.Alignment = StringAlignment.Center;
+                SolidBrush backColor = new SolidBrush(Color.FromArgb(40, 40, 40));
+                SolidBrush fontColor;
+                e.Graphics.FillRectangle(backColor, rec);
+                Font fntTab = new Font("Segoe UI", 8.99f, FontStyle.Regular);
+                Brush bshBack = new SolidBrush(Color.FromArgb(38, 38, 38));
+
+                for (int i = 0; i < tabControl1.TabPages.Count; i++)
+                {
+                    bool bSelected = (tabControl1.SelectedIndex == i);
+                    Rectangle recBounds = tabControl1.GetTabRect(i);
+                    RectangleF tabTextArea = (RectangleF)tabControl1.GetTabRect(i);
+                    if (bSelected)
+                    {
+                        e.Graphics.FillRectangle(bshBack, recBounds);
+                        fontColor = new SolidBrush(Color.White);
+                        e.Graphics.DrawString(tabControl1.TabPages[i].Text, fntTab, fontColor, tabTextArea, StrFormat);
+                    }
+                    else
+                    {
+                        fontColor = new SolidBrush(Color.White);
+                        e.Graphics.DrawString(tabControl1.TabPages[i].Text, fntTab, fontColor, tabTextArea, StrFormat);
+                    }
+                }
+            };
         }
     }
 }
