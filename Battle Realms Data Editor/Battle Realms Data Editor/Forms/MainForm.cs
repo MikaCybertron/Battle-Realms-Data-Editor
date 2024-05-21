@@ -180,6 +180,8 @@ namespace BattleRealmsDataEditor.Forms
                 }
             };
 
+            tabControl1.ItemSize = new Size(60, 20);
+            tabControl1.SizeMode = TabSizeMode.Fixed;
             tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
             tabControl1.DrawItem += (s, e) =>
             {
@@ -211,6 +213,7 @@ namespace BattleRealmsDataEditor.Forms
                     }
                 }
             };
+
         }
     }
 }
