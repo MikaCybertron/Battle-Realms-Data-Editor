@@ -11,7 +11,7 @@ This tool has been reactivate by Mika Cybertron, the original one can be found i
 
 Windows 10/11 or higher, 32-bit or 64-bit.
 
-# Preview
+## Preview
 ![](https://github.com/KravitzMC/Battle-Realms-Data-Editor/blob/main/Image/3_dark.png)
 
 ![](https://github.com/KravitzMC/Battle-Realms-Data-Editor/blob/main/Image/4_dark.png)
