@@ -1,6 +1,6 @@
 # Battle Realms Data Editor
 
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/MikaCybertron/Battle-Realms-Data-Editor/total?style=for-the-badge&logo=windows&link=https%3A%2F%2Fgithub.com%2FMikaCybertron%2FBattle-Realms-Data-Editor%2Freleases)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/MikaCybertron/Battle-Realms-Data-Editor/total?style=for-the-badge&logo=windowsxp&link=https%3A%2F%2Fgithub.com%2FMikaCybertron%2FBattle-Realms-Data-Editor%2Freleases)
 
 Battle Realms Data Editor is a tool to modify the "Battle Realms.dat" file for all versions of the Battle Realms game such as making mods for build time, units, skills, etc.
 
