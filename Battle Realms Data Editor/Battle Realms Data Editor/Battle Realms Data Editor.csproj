@@ -54,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DarkToolStripSeparator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainMenuRenderer.cs" />
     <Compile Include="TitleBarExtension.cs" />
     <Compile Include="DataGridExtension.cs" />
     <Compile Include="Data\ColumnLink.cs" />
