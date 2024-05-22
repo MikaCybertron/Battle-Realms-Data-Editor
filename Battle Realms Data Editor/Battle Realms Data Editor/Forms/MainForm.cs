@@ -12,8 +12,7 @@ namespace BattleRealmsDataEditor.Forms
         {
             InitializeComponent();
             CreateEventListener();
-
-            this.EnabledTitleBarDarkMode();
+            InitializeMainMenu();
         }
 
         public DATEditor Editor { get; set; }
@@ -33,6 +32,8 @@ namespace BattleRealmsDataEditor.Forms
             this.MainLTETable = new LTETableForm(this);
 
             ShowMainControl(this.MainPanel3, this.MainLTETable);
+
+            this.EnabledTitleBarDarkMode();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -168,6 +169,22 @@ namespace BattleRealmsDataEditor.Forms
             }
         }
 
+        private void InitializeMainMenu()
+        {
+            ToolStripMenuItem ExitToolStripMenuItem = new ToolStripMenuItem();
+            DarkToolStripSeparator Separator1 = new DarkToolStripSeparator();
+            ExitToolStripMenuItem.BackColor = Color.FromArgb(45, 45, 45);
+            ExitToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
+            ExitToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.F4;
+            ExitToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            ExitToolStripMenuItem.Text = "Exit";
+            ExitToolStripMenuItem.Click += new System.EventHandler(this.mnuExit_Click);
+            menuStrip1.Renderer = new BrowserMenuRenderer();
+            fileToolStripMenuItem.DropDownItems.Add(Separator1);
+            fileToolStripMenuItem.DropDownItems.Add(ExitToolStripMenuItem);
+        }
+
         private void CreateEventListener()
         {
             InitializeDragDropFile();
@@ -213,7 +230,12 @@ namespace BattleRealmsDataEditor.Forms
                     }
                 }
             };
+        }
 
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            GC.Collect();
+            Application.Exit();
         }
     }
 }

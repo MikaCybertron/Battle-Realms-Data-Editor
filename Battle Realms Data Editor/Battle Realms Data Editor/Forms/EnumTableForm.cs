@@ -1,12 +1,6 @@
 ﻿using BattleRealmsDataEditor.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BattleRealmsDataEditor.Forms
@@ -22,11 +16,28 @@ namespace BattleRealmsDataEditor.Forms
 
             InitializeDataGrid();
             ReadListData();
+            CreateEventListener();
+        }
+
+        private void CreateEventListener()
+        {
+            DataGridEnumTable.CellFormatting += (s, e) =>
+            {
+                e.CellStyle.BackColor = Color.FromArgb(64, 64, 64);
+                e.CellStyle.ForeColor = Color.White;
+            };
         }
 
         private void InitializeDataGrid()
         {
-            dataGridView1.EnableDoubleBuffered();
+            DataGridEnumTable.EnableDoubleBuffered();
+            DataGridEnumTable.EnableHeadersVisualStyles = false;
+            DataGridEnumTable.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(38, 38, 38);
+            DataGridEnumTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            DataGridEnumTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(38, 79, 120);
+            DataGridEnumTable.DefaultCellStyle.SelectionForeColor = Color.White;
+            DataGridEnumTable.ColumnHeadersHeight = 30;
+            DataGridEnumTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
         }
 
         public MainForm mainForm { get; set; }
@@ -37,14 +48,13 @@ namespace BattleRealmsDataEditor.Forms
 
         private void EnumTableForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void ReadListData()
         {
             this.listBox1.Items.Clear();
-            dataGridView1.Columns.Clear();
-            dataGridView1.Rows.Clear();
+            DataGridEnumTable.Columns.Clear();
+            DataGridEnumTable.Rows.Clear();
 
             for (int i = 0; i < this.Editor.DAT.EnumCollection.Length; i++)
             {
@@ -65,8 +75,7 @@ namespace BattleRealmsDataEditor.Forms
             newColumn.HeaderText = headerText;
             newColumn.Name = headerText;
 
-
-            int headerWidth = TextRenderer.MeasureText(headerText, dataGridView1.Font).Width + 35;
+            int headerWidth = TextRenderer.MeasureText(headerText, DataGridEnumTable.Font).Width + 35;
 
             newColumn.Width = headerWidth;
 
@@ -78,13 +87,13 @@ namespace BattleRealmsDataEditor.Forms
             newColumn.DefaultCellStyle.Alignment = aligment;
 
             // Add the new column to the DataGridView
-            return dataGridView1.Columns.Add(newColumn);
+            return DataGridEnumTable.Columns.Add(newColumn);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGridView1.Columns.Clear();
-            dataGridView1.Rows.Clear();
+            DataGridEnumTable.Columns.Clear();
+            DataGridEnumTable.Rows.Clear();
 
             int selectedIndex = this.listBox1.SelectedIndex;
 
@@ -119,22 +128,22 @@ namespace BattleRealmsDataEditor.Forms
                         Value = enums.Name
                     });
 
-                    int headerWidth = TextRenderer.MeasureText(enums.Name, dataGridView1.Font).Width + 35;
+                    int headerWidth = TextRenderer.MeasureText(enums.Name, DataGridEnumTable.Font).Width + 35;
 
-                    if(headerWidth > tempWidth)
+                    if (headerWidth > tempWidth)
                     {
                         tempWidth = headerWidth;
                     }
 
-                    dataGridView1.Columns[1].Width = tempWidth;
+                    DataGridEnumTable.Columns[1].Width = tempWidth;
 
-                    dataGridView1.Rows.Add(dataGridViewRow);
+                    DataGridEnumTable.Rows.Add(dataGridViewRow);
                 }
-                dataGridView1.Columns[0].Frozen = true;
+                DataGridEnumTable.Columns[0].Frozen = true;
 
                 mainForm.label1.Text = string.Format("Enum Table: {0}, Total Enum: {1}, Offsets: 0x{2:X2}", enumCollection.Name, enumCollection.ListEnum.Count, enumCollection.Offset);
 
-                dataGridView1.ClearSelection();
+                DataGridEnumTable.ClearSelection();
             }
             catch (Exception ex)
             {
@@ -184,9 +193,9 @@ namespace BattleRealmsDataEditor.Forms
             {
                 DATCollection.DATEnumCollection enumCollection = this.Editor.DAT.EnumCollection[selectedIndex];
 
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (DataGridEnumTable.SelectedRows.Count > 0)
                 {
-                    int rowIndex = dataGridView1.SelectedRows[0].Index;
+                    int rowIndex = DataGridEnumTable.SelectedRows[0].Index;
 
                     DATCollection.DATEnum enums = enumCollection.ListEnum[rowIndex];
 
@@ -196,7 +205,6 @@ namespace BattleRealmsDataEditor.Forms
                 {
                     mainForm.label1.Text = string.Format("Enum Table: {0}, Total Enum: {1}, Offsets: 0x{2:X2}", enumCollection.Name, enumCollection.ListEnum.Count, enumCollection.Offset);
                 }
-                
             }
             catch (Exception ex)
             {
