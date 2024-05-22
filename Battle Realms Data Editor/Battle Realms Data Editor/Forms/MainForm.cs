@@ -128,6 +128,11 @@ namespace BattleRealmsDataEditor.Forms
                     {
                         OpenSingleDATFile(files[0]);
                     }
+                    else
+                    {
+                        MessageBox.Show("File type not supported. Please select a supported file format.",
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             };
 
