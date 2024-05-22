@@ -23,6 +23,6 @@ Please make sure to update tests as appropriate.
 ## Todo 
 - [ ] Add some unit test in .csproj
 - [ ] Add LTE Editor value box
-- [ ] Add mini map simulation tester for units, skills, building etc. . similar FarCry 3 or 4 Map editor via DirectX (if possible)
+- [ ] Add mini map tester for units, skills, building etc. . similar FarCry 3 or 4 Map editor via DirectX (if possible)
 
 
