@@ -1,16 +1,8 @@
 ﻿using BattleRealmsDataEditor.Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Common;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace BattleRealmsDataEditor.Forms
 {
@@ -22,15 +14,34 @@ namespace BattleRealmsDataEditor.Forms
 
             this.mainForm = mainForm;
             this.Editor = editor;
-            
+
             InitializeDataGrid();
             ReadListData();
+            CreateEventListener();
         }
+
+        private void CreateEventListener()
+        {
+            DataGridDataTable.BackgroundColor = Color.FromArgb(50, 50, 50);
+            DataGridDataTable.CellFormatting += (s, e) =>
+            {
+                e.CellStyle.BackColor = Color.FromArgb(64, 64, 64);
+                e.CellStyle.ForeColor = Color.White;
+            };
+        }
+
         private void InitializeDataGrid()
         {
-            dataGridView1.EnableDoubleBuffered();
+            DataGridDataTable.EnableDoubleBuffered();
+            DataGridDataTable.EnableHeadersVisualStyles = false;
+            DataGridDataTable.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(38, 38, 38);
+            DataGridDataTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            DataGridDataTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(38, 79, 120);
+            DataGridDataTable.DefaultCellStyle.SelectionForeColor = Color.White;
+            DataGridDataTable.ColumnHeadersHeight = 30;
+            DataGridDataTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
         }
-        
+
         public MainForm mainForm { get; set; }
 
         public string FilePath { get; set; }
@@ -55,10 +66,9 @@ namespace BattleRealmsDataEditor.Forms
 
             GlobalManagement.OriginalValue = new Dictionary<long, object>();
 
-
             this.listBox1.Items.Clear();
-            dataGridView1.Columns.Clear();
-            dataGridView1.Rows.Clear();
+            DataGridDataTable.Columns.Clear();
+            DataGridDataTable.Rows.Clear();
 
             for (int i = 0; i < this.Editor.DAT.DataCollection.Length; i++)
             {
@@ -86,8 +96,6 @@ namespace BattleRealmsDataEditor.Forms
 
                         GlobalManagement.OriginalValue.Add(offset, value);
                     }
-
-                    
                 }
             }
 
@@ -96,21 +104,20 @@ namespace BattleRealmsDataEditor.Forms
                 this.listBox1.SelectedIndex = 0;
             }
 
-
             EnumCollection = new Dictionary<string, List<DATCollection.DATEnum>>();
 
             for (int i = 0; i < this.Editor.DAT.EnumCollection.Length; i++)
             {
                 DATCollection.DATEnumCollection enumCollection = this.Editor.DAT.EnumCollection[i];
 
-                if(!EnumCollection.IsKeyExists(enumCollection.Name))
+                if (!EnumCollection.IsKeyExists(enumCollection.Name))
                 {
                     EnumCollection.Add(enumCollection.Name, enumCollection.ListEnum);
                 }
             }
 
             string version = "Original";
-            if(this.Editor.DAT.IsWOTWVersion)
+            if (this.Editor.DAT.IsWOTWVersion)
             {
                 version = "WOTW";
             }
@@ -125,8 +132,7 @@ namespace BattleRealmsDataEditor.Forms
             newColumn.HeaderText = headerText;
             newColumn.Name = headerText;
 
-
-            int headerWidth = TextRenderer.MeasureText(headerText, dataGridView1.Font).Width + 35;
+            int headerWidth = TextRenderer.MeasureText(headerText, DataGridDataTable.Font).Width + 35;
 
             newColumn.Width = headerWidth;
 
@@ -138,13 +144,13 @@ namespace BattleRealmsDataEditor.Forms
             newColumn.DefaultCellStyle.Alignment = aligment;
 
             // Add the new column to the DataGridView
-            return dataGridView1.Columns.Add(newColumn);
+            return DataGridDataTable.Columns.Add(newColumn);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGridView1.Columns.Clear();
-            dataGridView1.Rows.Clear();
+            DataGridDataTable.Columns.Clear();
+            DataGridDataTable.Rows.Clear();
 
             int selectedIndex = this.listBox1.SelectedIndex;
 
@@ -182,19 +188,15 @@ namespace BattleRealmsDataEditor.Forms
                     {
                         NewColumnDataGrid(headerName, true, DataGridViewContentAlignment.MiddleRight);
                     }
-                    
 
                     if ((i == 0 || i == 1) && (name.Contains("Type") || name.Contains("ID") || name.Contains("Name") || name.Contains("Actual")))
                     {
-                        dataGridView1.Columns[i].Frozen = true;
+                        DataGridDataTable.Columns[i].Frozen = true;
                     }
-
-
                 }
 
                 for (int i = 0; i < dataCollection.RowCount; i++)
                 {
-
                     DataGridViewRow dataGridViewRow = new DataGridViewRow();
 
                     for (int j = 0; j < dataCollection.ColumnCount; j++)
@@ -215,13 +217,13 @@ namespace BattleRealmsDataEditor.Forms
                         });
                     }
 
-                    dataGridView1.Rows.Add(dataGridViewRow);
+                    DataGridDataTable.Rows.Add(dataGridViewRow);
                 }
 
                 // Default Width Column
                 for (int i = 0; i < dataCollection.ColumnCount; i++)
                 {
-                    int tempWidth = TextRenderer.MeasureText(dataCollection.Columns[i].Name, dataGridView1.Font).Width + 35;
+                    int tempWidth = TextRenderer.MeasureText(dataCollection.Columns[i].Name, DataGridDataTable.Font).Width + 35;
 
                     for (int j = 0; j < dataCollection.RowCount; j++)
                     {
@@ -229,13 +231,13 @@ namespace BattleRealmsDataEditor.Forms
 
                         if (value is string)
                         {
-                            int headerWidth = TextRenderer.MeasureText((string)value, dataGridView1.Font).Width + 35;
+                            int headerWidth = TextRenderer.MeasureText((string)value, DataGridDataTable.Font).Width + 35;
 
                             if (headerWidth > tempWidth)
                             {
                                 tempWidth = headerWidth;
 
-                                dataGridView1.Columns[i].Width = tempWidth;
+                                DataGridDataTable.Columns[i].Width = tempWidth;
                             }
                         }
                     }
@@ -243,7 +245,7 @@ namespace BattleRealmsDataEditor.Forms
 
                 SetLabelText(string.Format("Data Table: {0}, Total Column: {1}, Total Row: {2}, Body Offsets: 0x{3:X2}, Offsets: 0x{4:X2}", dataCollection.Name, dataCollection.ColumnCount, dataCollection.RowCount, dataCollection.BodyOffset, dataCollection.Offset));
 
-                dataGridView1.ClearSelection();
+                DataGridDataTable.ClearSelection();
             }
             catch (Exception ex)
             {
@@ -279,7 +281,6 @@ namespace BattleRealmsDataEditor.Forms
                 object offset = dataCollection.Cells[rowIndex][columnIndex].Offset;
 
                 SetLabelText(string.Format("Data Table: {0}, Name: {1}, Type: {2}, Value: {3}, Offsets: 0x{4:X2}", dataCollection.Name, name, dataType, value, offset));
-
             }
             catch (Exception ex)
             {
@@ -303,21 +304,21 @@ namespace BattleRealmsDataEditor.Forms
 
                 SetLabelText(string.Format("Data Table: {0}, Total Column: {1}, Total Row: {2}, Body Offsets: 0x{3:X2}, Offsets: 0x{4:X2}", dataCollection.Name, dataCollection.ColumnCount, dataCollection.RowCount, dataCollection.BodyOffset, dataCollection.Offset));
 
-                if (dataGridView1.SelectedCells.Count == 0)
+                if (DataGridDataTable.SelectedCells.Count == 0)
                 {
                     return;
                 }
 
-                if (dataGridView1.CurrentCell == null)
+                if (DataGridDataTable.CurrentCell == null)
                 {
                     return;
                 }
 
-                if (dataGridView1.CurrentCell.ColumnIndex >= 0)
+                if (DataGridDataTable.CurrentCell.ColumnIndex >= 0)
                 {
-                    int rowIndex = dataGridView1.CurrentCell.RowIndex;
+                    int rowIndex = DataGridDataTable.CurrentCell.RowIndex;
 
-                    int columnIndex = dataGridView1.CurrentCell.ColumnIndex;
+                    int columnIndex = DataGridDataTable.CurrentCell.ColumnIndex;
 
                     DATCollection.DATDataColumn column = dataCollection.Columns[columnIndex];
 
@@ -331,7 +332,6 @@ namespace BattleRealmsDataEditor.Forms
 
                     SetLabelText(string.Format("Data Table: {0}, Name: {1}, Type: {2}, Value: {3}, Offsets: 0x{4:X2}", dataCollection.Name, name, dataType, value, offset));
                 }
-
             }
             catch (Exception ex)
             {
@@ -391,7 +391,6 @@ namespace BattleRealmsDataEditor.Forms
 
                 if (tableLink.Column.IsKeyExists(name))
                 {
-
                     //if(name == "BuildingPortrait" || name == "CanOnlyHaveOne")
                     //{
                     //    // Not Editable
@@ -402,11 +401,11 @@ namespace BattleRealmsDataEditor.Forms
 
                     DialogResult result = editorForm.ShowDialog();
 
-                    if(result == DialogResult.OK)
+                    if (result == DialogResult.OK)
                     {
                         this.Editor.DAT.DataCollection[selectedIndex].Cells[rowIndex][columnIndex].Value = editorForm.Value;
 
-                        this.dataGridView1.Rows[rowIndex].Cells[columnIndex].Value = editorForm.Value;
+                        this.DataGridDataTable.Rows[rowIndex].Cells[columnIndex].Value = editorForm.Value;
 
                         GlobalManagement.SaveALLChangesValue.XAdd(offset, editorForm.Value);
                         if (name == "CanOnlyHaveOne")
@@ -417,7 +416,7 @@ namespace BattleRealmsDataEditor.Forms
                             }
                         }
 
-                        if(GlobalManagement.SaveALLChangesValue.IsKeyExists(offset))
+                        if (GlobalManagement.SaveALLChangesValue.IsKeyExists(offset))
                         {
                             if (GlobalManagement.SaveALLChangesValue.TryGetValue(offset, out object saveAllValue) && GlobalManagement.OriginalValue.TryGetValue(offset, out object originalValue) && object.Equals(saveAllValue, originalValue))
                             {
@@ -425,7 +424,7 @@ namespace BattleRealmsDataEditor.Forms
                             }
                         }
 
-                        if(GlobalManagement.SaveALLChangesValue.Count > 0)
+                        if (GlobalManagement.SaveALLChangesValue.Count > 0)
                         {
                             mainForm.saveToolStripMenuItem.Enabled = true;
                             mainForm.saveAsToolStripMenuItem.Enabled = true;
@@ -437,7 +436,6 @@ namespace BattleRealmsDataEditor.Forms
                         }
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -623,7 +621,6 @@ namespace BattleRealmsDataEditor.Forms
                         }
                     }
                 }
-
                 //Console.WriteLine("SaveALLChangesValue: {0}", GlobalManagement.SaveALLChangesValue.Count);
             }
         }

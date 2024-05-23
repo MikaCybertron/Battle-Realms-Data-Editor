@@ -1,5 +1,7 @@
 ﻿using BattleRealmsDataEditor.Data;
 using System;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace BattleRealmsDataEditor.Forms
@@ -9,16 +11,8 @@ namespace BattleRealmsDataEditor.Forms
         public MainForm()
         {
             InitializeComponent();
-
-            this.EnabledTitleBarDarkMode();
-
-            FormClosing += (s, e) =>
-            {
-                if (e.CloseReason == CloseReason.UserClosing)
-                {
-                    GC.Collect();
-                }
-            };
+            CreateEventListener();
+            InitializeMainMenu();
         }
 
         public DATEditor Editor { get; set; }
@@ -38,6 +32,8 @@ namespace BattleRealmsDataEditor.Forms
             this.MainLTETable = new LTETableForm(this);
 
             ShowMainControl(this.MainPanel3, this.MainLTETable);
+
+            this.EnabledTitleBarDarkMode();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,25 +47,7 @@ namespace BattleRealmsDataEditor.Forms
             {
                 string filePath = openFileDialog.FileName;
 
-                DATFile datFile = new DATFile(filePath);
-
-                Console.WriteLine(datFile.ToString());
-
-                Editor = new DATEditor();
-
-                Editor.DoOpen(datFile);
-
-                this.MainDataTable = null;
-
-                this.MainDataTable = new DataTableForm(this, this.Editor);
-
-                this.MainEnumTable = null;
-
-                this.MainEnumTable = new EnumTableForm(this, this.Editor);
-
-                ShowMainControl(this.MainPanel1, this.MainDataTable);
-
-                ShowMainControl(this.MainPanel2, this.MainEnumTable);
+                OpenSingleDATFile(filePath);
             }
         }
 
@@ -125,6 +103,144 @@ namespace BattleRealmsDataEditor.Forms
             if (AboutBox.ShowDialog(this) == DialogResult.OK)
             {
             }
+        }
+
+        private void InitializeDragDropFile()
+        {
+            this.AllowDrop = true;
+
+            this.DragDrop += (s, e) =>
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                if (files.Length > 1)
+                {
+                    MessageBox.Show("Not allowed multiple drag drop files.",
+                        "Error Opening file",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else if (files.Length == 1)
+                {
+                    var ext = Path.GetExtension(files[0]).ToLower();
+
+                    if (ext == ".dat")
+                    {
+                        OpenSingleDATFile(files[0]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("File type not supported. Please select a supported file format.",
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            };
+
+            this.DragEnter += (s, e) =>
+            {
+                if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                {
+                    e.Effect = DragDropEffects.Copy | DragDropEffects.Move;
+                }
+            };
+        }
+
+        private void OpenSingleDATFile(string filePath)
+        {
+            try
+            {
+                DATFile datFile = new DATFile(filePath);
+
+                Editor = new DATEditor();
+
+                Editor.DoOpen(datFile);
+
+                this.MainDataTable = null;
+
+                this.MainDataTable = new DataTableForm(this, this.Editor);
+
+                this.MainEnumTable = null;
+
+                this.MainEnumTable = new EnumTableForm(this, this.Editor);
+
+                ShowMainControl(this.MainPanel1, this.MainDataTable);
+
+                ShowMainControl(this.MainPanel2, this.MainEnumTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while reading the stream: {ex.Message}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void InitializeMainMenu()
+        {
+            ToolStripMenuItem ExitToolStripMenuItem = new ToolStripMenuItem();
+            DarkToolStripSeparator Separator1 = new DarkToolStripSeparator();
+            ExitToolStripMenuItem.BackColor = Color.FromArgb(45, 45, 45);
+            ExitToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
+            ExitToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.F4;
+            ExitToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            ExitToolStripMenuItem.Text = "Exit";
+            ExitToolStripMenuItem.Click += new System.EventHandler(this.mnuExit_Click);
+            menuStrip1.Renderer = new BrowserMenuRenderer();
+            fileToolStripMenuItem.DropDownItems.Add(Separator1);
+            fileToolStripMenuItem.DropDownItems.Add(ExitToolStripMenuItem);
+        }
+
+        private void CreateEventListener()
+        {
+            InitializeDragDropFile();
+
+            FormClosing += (s, e) =>
+            {
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    GC.Collect();
+                }
+            };
+
+            tabControl1.ItemSize = new Size(60, 20);
+            tabControl1.SizeMode = TabSizeMode.Fixed;
+            tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabControl1.DrawItem += (s, e) =>
+            {
+                Rectangle rec = tabControl1.ClientRectangle;
+                StringFormat StrFormat = new StringFormat();
+                StrFormat.LineAlignment = StringAlignment.Center;
+                StrFormat.Alignment = StringAlignment.Center;
+                SolidBrush backColor = new SolidBrush(Color.FromArgb(40, 40, 40));
+                SolidBrush fontColor;
+                e.Graphics.FillRectangle(backColor, rec);
+                Font fntTab = new Font("Segoe UI", 8.99f, FontStyle.Regular);
+                Brush bshBack = new SolidBrush(Color.FromArgb(38, 38, 38));
+
+                for (int i = 0; i < tabControl1.TabPages.Count; i++)
+                {
+                    bool bSelected = (tabControl1.SelectedIndex == i);
+                    Rectangle recBounds = tabControl1.GetTabRect(i);
+                    RectangleF tabTextArea = (RectangleF)tabControl1.GetTabRect(i);
+                    if (bSelected)
+                    {
+                        e.Graphics.FillRectangle(bshBack, recBounds);
+                        fontColor = new SolidBrush(Color.White);
+                        e.Graphics.DrawString(tabControl1.TabPages[i].Text, fntTab, fontColor, tabTextArea, StrFormat);
+                    }
+                    else
+                    {
+                        fontColor = new SolidBrush(Color.White);
+                        e.Graphics.DrawString(tabControl1.TabPages[i].Text, fntTab, fontColor, tabTextArea, StrFormat);
+                    }
+                }
+            };
+        }
+
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            GC.Collect();
+            Application.Exit();
         }
     }
 }

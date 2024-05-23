@@ -1,13 +1,7 @@
 ﻿using BattleRealmsDataEditor.Data;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BattleRealmsDataEditor.Forms
@@ -19,29 +13,45 @@ namespace BattleRealmsDataEditor.Forms
             InitializeComponent();
 
             this.mainForm = mainForm;
-            
+
             InitializeDataGrid();
             ReadListData();
+            CreateEventListener();
+        }
+
+        private void CreateEventListener()
+        {
+            DataGridLTETable.CellFormatting += (s, e) =>
+            {
+                e.CellStyle.BackColor = Color.FromArgb(64, 64, 64);
+                e.CellStyle.ForeColor = Color.White;
+            };
         }
 
         private void InitializeDataGrid()
         {
-            dataGridView1.EnableDoubleBuffered();
+            DataGridLTETable.EnableDoubleBuffered();
+            DataGridLTETable.EnableDoubleBuffered();
+            DataGridLTETable.EnableHeadersVisualStyles = false;
+            DataGridLTETable.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(38, 38, 38);
+            DataGridLTETable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            DataGridLTETable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(38, 79, 120);
+            DataGridLTETable.DefaultCellStyle.SelectionForeColor = Color.White;
+            DataGridLTETable.ColumnHeadersHeight = 30;
+            DataGridLTETable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
         }
-        
+
         public MainForm mainForm { get; set; }
 
         private void LTETableForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void ReadListData()
         {
             this.listBox1.Items.Clear();
-            dataGridView1.Columns.Clear();
-            dataGridView1.Rows.Clear();
-
+            DataGridLTETable.Columns.Clear();
+            DataGridLTETable.Rows.Clear();
 
             foreach (var pair in LTECollection.LTEStringCollection)
             {
@@ -63,8 +73,7 @@ namespace BattleRealmsDataEditor.Forms
             newColumn.HeaderText = headerText;
             newColumn.Name = headerText;
 
-
-            int headerWidth = TextRenderer.MeasureText(headerText, dataGridView1.Font).Width + 35;
+            int headerWidth = TextRenderer.MeasureText(headerText, DataGridLTETable.Font).Width + 35;
 
             newColumn.Width = headerWidth;
 
@@ -76,13 +85,13 @@ namespace BattleRealmsDataEditor.Forms
             newColumn.DefaultCellStyle.Alignment = aligment;
 
             // Add the new column to the DataGridView
-            return dataGridView1.Columns.Add(newColumn);
+            return DataGridLTETable.Columns.Add(newColumn);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGridView1.Columns.Clear();
-            dataGridView1.Rows.Clear();
+            DataGridLTETable.Columns.Clear();
+            DataGridLTETable.Rows.Clear();
 
             int selectedIndex = this.listBox1.SelectedIndex;
 
@@ -94,7 +103,6 @@ namespace BattleRealmsDataEditor.Forms
 
             try
             {
-
                 NewColumnDataGrid("ID (Integer)", true, DataGridViewContentAlignment.MiddleRight);
 
                 NewColumnDataGrid("Text (String)", true, DataGridViewContentAlignment.MiddleLeft);
@@ -118,21 +126,21 @@ namespace BattleRealmsDataEditor.Forms
                         Value = item.Text
                     });
 
-                    int headerWidth = TextRenderer.MeasureText(item.Text, dataGridView1.Font).Width + 35;
+                    int headerWidth = TextRenderer.MeasureText(item.Text, DataGridLTETable.Font).Width + 35;
 
                     if (headerWidth > tempWidth)
                     {
                         tempWidth = headerWidth;
                     }
-                    dataGridView1.Columns[1].Width = tempWidth;
+                    DataGridLTETable.Columns[1].Width = tempWidth;
 
-                    dataGridView1.Rows.Add(dataGridViewRow);
+                    DataGridLTETable.Rows.Add(dataGridViewRow);
                 }
-                dataGridView1.Columns[0].Frozen = true;
+                DataGridLTETable.Columns[0].Frozen = true;
 
                 mainForm.label1.Text = string.Format("LTE Table: {0}, Total String Item: {1}", this.listBox1.SelectedItem.ToString(), stringItems.Count);
 
-                dataGridView1.ClearSelection();
+                DataGridLTETable.ClearSelection();
             }
             catch (Exception ex)
             {
@@ -180,9 +188,9 @@ namespace BattleRealmsDataEditor.Forms
             {
                 List<StringItem> stringItems = LTECollection.LTEStringCollection[this.listBox1.SelectedItem.ToString()];
 
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (DataGridLTETable.SelectedRows.Count > 0)
                 {
-                    int rowIndex = dataGridView1.SelectedRows[0].Index;
+                    int rowIndex = DataGridLTETable.SelectedRows[0].Index;
 
                     StringItem item = stringItems[rowIndex];
 
@@ -192,7 +200,6 @@ namespace BattleRealmsDataEditor.Forms
                 {
                     mainForm.label1.Text = string.Format("LTE Table: {0}, Total String Item: {1}", this.listBox1.SelectedItem.ToString(), stringItems.Count);
                 }
-
             }
             catch (Exception ex)
             {
