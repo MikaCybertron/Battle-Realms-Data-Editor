@@ -22,7 +22,7 @@ Please make sure to update tests as appropriate.
 ## Todo 
 - [ ] Add some unit test in .csproj
 - [ ] Add LTE Editor value Dialogbox
-- [ ] Add mini map tester for units, skills, building etc. . similar FarCry 3 or 4 Map editor via DirectX (if possible)
+- [ ] Add mini map tester for units, skills, building etc. . similar FarCry 3 or 4 Map editor via [DirectN](https://github.com/smourier/DirectN) (if possible)
 
 ## License
 [![License: CC BY-NC-ND 4.0](https://github.com/KravitzMC/Battle-Realms-Data-Editor/blob/main/Image/byncsa_licensecommon.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
