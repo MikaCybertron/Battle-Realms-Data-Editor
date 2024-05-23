@@ -24,4 +24,6 @@ Please make sure to update tests as appropriate.
 - [ ] Add LTE Editor value Dialogbox
 - [ ] Add mini map tester for units, skills, building etc. . similar FarCry 3 or 4 Map editor via DirectX (if possible)
 
+## License
+[![License: CC BY-NC-ND 4.0](https://github.com/KravitzMC/Battle-Realms-Data-Editor/blob/main/Image/byncsa_licensecommon.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
