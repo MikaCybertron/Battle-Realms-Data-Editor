@@ -17,7 +17,7 @@ Windows 10/11 or higher, 32-bit or 64-bit.
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 Please make sure to update tests as appropriate.
 
-## Todo next
+## Todo
 - [ ] Add some unit test in .csproj
 - [ ] Add LTE Editor value Dialogbox
 - [ ] Add quick search function
