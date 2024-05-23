@@ -25,5 +25,5 @@ Please make sure to update tests as appropriate.
 - [ ] Add mini map tester for units, skills, building etc. . similar FARCRY 3/4/5 Map Editor tool via [DirectN](https://github.com/smourier/DirectN) (if possible)
 
 ## License
-[![License: CC BY-NC-ND 4.0](https://github.com/KravitzMC/Battle-Realms-Data-Editor/blob/main/Image/byncsa_licensecommon.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![License: CC BY-NC-ND 4.0](https://github.com/MikaCybertron/Battle-Realms-Data-Editor/blob/main/Image/byncsa_licensecommon.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
