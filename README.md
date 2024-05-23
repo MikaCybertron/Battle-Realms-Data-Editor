@@ -21,7 +21,7 @@ Please make sure to update tests as appropriate.
 - [ ] Add some unit test in .csproj
 - [ ] Add LTE Editor value Dialogbox
 - [ ] Add quick search function
-- [ ] Add asynchronous loading from DAT file
+- [ ] Add asynchronous/parallel loading from DAT file
 - [ ] Add map simulate for units, skills, building etc. . similar FARCRY 3/4/5 Map Editor tool via [DirectN](https://github.com/smourier/DirectN) (if possible)
 
 ## License
