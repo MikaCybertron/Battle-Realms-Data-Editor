@@ -1,7 +1,7 @@
-# Battle Realms Data Editor
+# Battle Realms Data Editor 
 
- [![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa] [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/MikaCybertron/Battle-Realms-Data-Editor/total?style=for-the-badge&logo=windows10&link=https%3A%2F%2Fgithub.com%2FMikaCybertron%2FBattle-Realms-Data-Editor%2Freleases)](https://github.com/MikaCybertron/Battle-Realms-Data-Editor/releases) 
 
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/MikaCybertron/Battle-Realms-Data-Editor/total?style=for-the-badge&logo=windows10&link=https%3A%2F%2Fgithub.com%2FMikaCybertron%2FBattle-Realms-Data-Editor%2Freleases)](https://github.com/MikaCybertron/Battle-Realms-Data-Editor/releases)     [![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa] 
 
 [cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
 [cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
@@ -31,4 +31,3 @@ Please make sure to update tests as appropriate.
 - [ ] Add Master Detail Datagridview mode
 - [ ] Add scrpting IDE tab to report as markdown,txt,html,pdf,docx etc..
 - [ ] Add map simulate for units, skills, building etc. . similar FARCRY 3/4/5 Map Editor tool via [DirectN](https://github.com/smourier/DirectN) (if possible)
-
