@@ -27,7 +27,7 @@ Please make sure to update tests as appropriate.
 - [ ] Clean Code (EP1)
 - [ ] Add LTE Editor value Dialogbox
 - [ ] Add quick search bar
-- [ ] Add Multiple Tab editor
+- [ ] Add Multiple files tab editor
 - [ ] Add alternating value mode
 - [ ] Add Master Detail Datagridview mode
 - [ ] Add command add Data offset to favourites
