@@ -24,6 +24,7 @@ Please make sure to update tests as appropriate.
 
 ## Todo
 - [ ] Add some unit test in .csproj
+- [ ] clean code
 - [ ] Add LTE Editor value Dialogbox
 - [ ] Add quick search bar
 - [ ] Add Multiple Tab editor
