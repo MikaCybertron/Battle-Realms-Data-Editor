@@ -1,11 +1,19 @@
 # Battle Realms Data Editor 
 
-
-[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/MikaCybertron/Battle-Realms-Data-Editor/total?style=for-the-badge&logo=windows10&link=https%3A%2F%2Fgithub.com%2FMikaCybertron%2FBattle-Realms-Data-Editor%2Freleases)](https://github.com/MikaCybertron/Battle-Realms-Data-Editor/releases)     
+ <a href="https://github.com/MikaCybertron">
+    <img alt="Author" src="https://img.shields.io/badge/Author-MikaCybertron-brightgreen?style=for-the-badge">
+ </a> 
+<a href="https://github.com/MikaCybertron/Battle-Realms-Data-Editor/releases" target="_blank">
+    <img alt="Release" src="https://img.shields.io/github/v/release/MikaCybertron/Battle-Realms-Data-Editor?style=for-the-badge">
+</a>
+<a href="https://github.com/MikaCybertron/Battle-Realms-Data-Editor/releases" target="_blank">
+    <img alt="Release" src="https://img.shields.io/github/downloads/MikaCybertron/Battle-Realms-Data-Editor/total?style=for-the-badge">
+</a>
 
 [cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
 [cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
 [cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
+ 
 
 Battle Realms Data Editor is a tool to modify the "Battle Realms.dat" file for all versions of the Battle Realms game such as making mods for build time, units, skills, etc.
 
