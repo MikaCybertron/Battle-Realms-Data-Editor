@@ -1,1 +1,43 @@
-
+{
+  "projectName": "Battle-Realms-Data-Editor",
+  "projectOwner": "all-contributors",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "MikaCybertron",
+      "name": "Mika Cybertron",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/45533977?v=4",
+      "profile": "https://github.com/MikaCybertron",
+      "contributions": [
+        "code",
+        "ideas",
+        "infra",
+        "test",
+		"bug"
+      ]
+    },
+    {
+      "login": "KravitzMC",
+      "name": "Kurt99",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6524613?v=4",
+      "profile": "https://github.com/KravitzMC",
+      "contributions": [
+       "code",
+        "ideas",
+        "infra",
+        "test",
+		"bug"
+      ]
+    }	
+  ],
+  "contributorsPerLine": 7,
+  "linkToUsage": true,
+  "skipCi": true,
+  "commitConvention": "C#"
+}
