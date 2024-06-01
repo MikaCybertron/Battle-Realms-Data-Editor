@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/MikaCybertron/Battle-Realms-Data-Editor/main/Image/Battle_Realms_Logo.png" width="100" height="100" align="right">
+
 # Battle Realms Data Editor 
 
 <a href="https://github.com/MikaCybertron"><img alt="Author" src="https://img.shields.io/badge/Author-MikaCybertron-brightgreen?style=for-the-badge"></a> 
