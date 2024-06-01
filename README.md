@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/MikaCybertron/Battle-Realms-Data-Editor/main/Image/Battle_Realms_Logo.png" width="100" height="100" align="right">
+<img src="https://raw.githubusercontent.com/MikaCybertron/Battle-Realms-Data-Editor/main/Image/Battle_Realms_Logo.png" width="90" height="90" align="right">
 
 # Battle Realms Data Editor 
 
