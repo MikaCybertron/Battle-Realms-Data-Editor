@@ -16,18 +16,18 @@ Battle Realms Data Editor is a tool to modify the "Battle Realms.dat" file for a
 
 This tool has been reactivate by Mika Cybertron and KravitzMC, the original one can be found in here [Data Editor](https://www.moddb.com/mods/boltymods-data-editor-for-battle-realms/downloads/boltymods-data-editor-file)
 
-## ❖ System requirements
+## System requirements
 
 Windows 10/11 or higher, 32-bit or 64-bit.
 
-## ❖ Preview
+## Preview
 ![](https://github.com/MikaCybertron/Battle-Realms-Data-Editor/blob/main/Image/4_dark.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 Please make sure to update tests as appropriate.
 
-## ❖ Progress
+## Progress
 - [ ] Add some unit test in .csproj
 - [ ] Clean Code (EP1)
 - [ ] Add LTE Editor value Dialogbox
@@ -41,5 +41,5 @@ Please make sure to update tests as appropriate.
 - [ ] Add scrpting IDE tab to report as markdown,txt,html,pdf,docx etc..
 - [ ] Add map simulate for units, skills, building etc. . similar FARCRY 3/4/5 Map Editor tool via [DirectN](https://github.com/smourier/DirectN) (if possible)
 
-### ❖ License
+### License
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa] 
