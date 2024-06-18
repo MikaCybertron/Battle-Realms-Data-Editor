@@ -37,7 +37,7 @@ Please make sure to update tests as appropriate.
 - [ ] Add alternating value mode
 - [ ] Add Master Detail Datagridview mode
 - [ ] Add command add Data offset to favourites
-- [ ] Add H2O Unpacker tool [H2O File Format doc](/docs/structure.md)
+- [ ] Add H2O Unpacker tool [H2O File Format doc](/docs/structure.md) (if possible)
 - [ ] Add scrpting IDE tab to report as markdown,txt,html,pdf,docx etc..
 - [ ] Add map simulate for units, skills, building etc. . similar FARCRY 3/4/5 Map Editor tool via [DirectN](https://github.com/smourier/DirectN) (if possible)
 
