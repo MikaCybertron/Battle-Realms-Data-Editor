@@ -14,7 +14,7 @@
  
 Battle Realms Data Editor is a tool to modify the "Battle Realms.dat" file for all versions of the Battle Realms game such as making mods for build time, units, skills, etc.
 
-This tool has been reactivate by Mika Cybertron and KravitzMC, the original one can be found in here [Data Editor](https://www.moddb.com/mods/boltymods-data-editor-for-battle-realms/downloads/boltymods-data-editor-file)
+This tool has been reactivate by [Mika Cybertron](https://github.com/MikaCybertron) and [KravitzMC](https://github.com/KravitzMC), the original one can be found in here [Data Editor](https://www.moddb.com/mods/boltymods-data-editor-for-battle-realms/downloads/boltymods-data-editor-file)
 
 ## System requirements
 
