@@ -21,8 +21,9 @@ This tool has been reactivate by [Mika Cybertron](https://github.com/MikaCybertr
 
 ## ⚠️ Please use Alternative projects:
 
+- ### [Battle Realms Data Editor (XLSX)](https://github.com/KravitzMC/Battle-Realms-Data-Editor-XLSX)
 - ### [Battle Realms - H2O Master](https://github.com/Aldrin-John-Olaer-Manalansan/H2O_Master)
 
-- ### [Battle Realms Data Editor (XLSX)](https://github.com/KravitzMC/Battle-Realms-Data-Editor-XLSX)
+
 
 
