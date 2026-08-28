@@ -2,6 +2,7 @@
 
 # Battle Realms Data Editor 
 
+
 <a href="https://github.com/MikaCybertron"><img alt="Author" src="https://img.shields.io/badge/Author-MikaCybertron-brightgreen?style=for-the-badge"></a> 
 [![GitHub contributors from allcontributors.org](https://img.shields.io/github/all-contributors/MikaCybertron/Battle-Realms-Data-Editor?style=for-the-badge&logo=C%23)](https://github.com/MikaCybertron/Battle-Realms-Data-Editor/graphs/contributors)
 <a href="https://github.com/MikaCybertron/Battle-Realms-Data-Editor/releases" target="_blank"><img alt="Release" src="https://img.shields.io/github/v/release/MikaCybertron/Battle-Realms-Data-Editor?style=for-the-badge"></a>
@@ -16,16 +17,10 @@ Battle Realms Data Editor is a tool to modify the "Battle Realms.dat" file for a
 
 This tool has been reactivate by [Mika Cybertron](https://github.com/MikaCybertron) and [KravitzMC](https://github.com/KravitzMC), the original one can be found in here [Data Editor](https://www.moddb.com/mods/boltymods-data-editor-for-battle-realms/downloads/boltymods-data-editor-file)
 
-## System requirements
-
-Windows 10/11 or higher, 32-bit or 64-bit.
-
 ## Preview
 ![](https://github.com/MikaCybertron/Battle-Realms-Data-Editor/blob/main/Image/4_dark.png)
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-Please make sure to update tests as appropriate.
+# Alternative Projects
 
-### License
-[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa] 
+* [Battle Realms - H2o Master](https://github.com/Aldrin-John-Olaer-Manalansan/H2O_Master)
+* [Battle Realms Data Editor (XLSX)](https://github.com/KravitzMC/Battle-Realms-Data-Editor-XLSX)
