@@ -2,12 +2,6 @@
 
 # Battle Realms Data Editor 
 
-## ⚠️  Please use these alternative projects:
-
-- ### [Battle Realms - H2O Master](https://github.com/Aldrin-John-Olaer-Manalansan/H2O_Master)
-
-- ### [Battle Realms Data Editor (XLSX)](https://github.com/KravitzMC/Battle-Realms-Data-Editor-XLSX)
-
 </br>
 <a href="https://github.com/MikaCybertron"><img alt="Author" src="https://img.shields.io/badge/Author-MikaCybertron-brightgreen?style=for-the-badge"></a> 
 <a href="https://github.com/MikaCybertron/Battle-Realms-Data-Editor/releases" target="_blank"><img alt="Release" src="https://img.shields.io/github/v/release/MikaCybertron/Battle-Realms-Data-Editor?style=for-the-badge"></a>
@@ -24,4 +18,11 @@ This tool has been reactivate by [Mika Cybertron](https://github.com/MikaCybertr
 
 ## Preview
 ![](https://github.com/MikaCybertron/Battle-Realms-Data-Editor/blob/main/Image/4_dark.png)
+
+## ⚠️ Please use Alternative projects:
+
+- ### [Battle Realms - H2O Master](https://github.com/Aldrin-John-Olaer-Manalansan/H2O_Master)
+
+- ### [Battle Realms Data Editor (XLSX)](https://github.com/KravitzMC/Battle-Realms-Data-Editor-XLSX)
+
 
