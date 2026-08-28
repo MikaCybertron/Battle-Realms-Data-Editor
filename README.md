@@ -2,9 +2,7 @@
 
 # Battle Realms Data Editor 
 
-# ⚠️ This Project Is No Longer Maintained
-
-## Please use these alternative projects:
+## ⚠️  Please use these alternative projects:
 
 - ### [Battle Realms - H2O Master](https://github.com/Aldrin-John-Olaer-Manalansan/H2O_Master)
 
