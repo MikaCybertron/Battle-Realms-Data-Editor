@@ -12,7 +12,6 @@
 
 </br>
 <a href="https://github.com/MikaCybertron"><img alt="Author" src="https://img.shields.io/badge/Author-MikaCybertron-brightgreen?style=for-the-badge"></a> 
-[![GitHub contributors from allcontributors.org](https://img.shields.io/github/all-contributors/MikaCybertron/Battle-Realms-Data-Editor?style=for-the-badge&logo=C%23)](https://github.com/MikaCybertron/Battle-Realms-Data-Editor/graphs/contributors)
 <a href="https://github.com/MikaCybertron/Battle-Realms-Data-Editor/releases" target="_blank"><img alt="Release" src="https://img.shields.io/github/v/release/MikaCybertron/Battle-Realms-Data-Editor?style=for-the-badge"></a>
 <a href="https://github.com/MikaCybertron/Battle-Realms-Data-Editor/releases" target="_blank"><img alt="Release" src="https://img.shields.io/github/downloads/MikaCybertron/Battle-Realms-Data-Editor/total?style=for-the-badge"></a>
 
