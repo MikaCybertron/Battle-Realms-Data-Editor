@@ -4,7 +4,7 @@
 
 ## ⚠️ This project is no longer Please use Alternative projects:
 
-- ### [Battle Realms Data Editor (Vercel)](https://brde-xlsx.vercel.app/)
+- ### [Battle Realms Data Editor (VercelApp)](https://brde-xlsx.vercel.app/)
 - ### [Battle Realms Data Editor (XLSX)](https://github.com/anldori/Battle-Realms-Data-Editor-XLSX)
 - ### [Battle Realms - H2O Master](https://github.com/Aldrin-John-Olaer-Manalansan/H2O_Master)
 
