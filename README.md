@@ -7,8 +7,7 @@
 - ### [Battle Realms Data Editor (VercelApp)](https://brde-xlsx.vercel.app/)
 - ### [Battle Realms Data Editor (XLSX)](https://github.com/anldori/Battle-Realms-Data-Editor-XLSX)
 - ### [Battle Realms - H2O Master Extract (Any Edition)](https://github.com/Aldrin-John-Olaer-Manalansan/H2O_Master)
-
-
+- ### [Reverse Engineer AI-Agent](https://github.com/morluto/rea) - if possible on BR
 
 </br>
 <a href="https://github.com/MikaCybertron"><img alt="Author" src="https://img.shields.io/badge/Author-MikaCybertron-brightgreen?style=for-the-badge"></a> 
